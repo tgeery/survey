@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  text-align: center;
+}
+
+.userinput {
+  margin-right: 10px;
+}
+
+.statusbutton {
+  border: solid;
+}
+
+.statusbutton:hover {
+  background-color: gray;
+}
+
+.menu {
+}
+
+.menuitem {
+  color: #888888;
+  margin-right: 10px;
+}
+
+.menuitem:hover {
+  color: darkgray;
+  text-decoration: none
+}
+
+.menusearch {
+}
+
+.menusearchitem {
+  width: 100%;
+}
+
+.loginbutton {
+  margin-right: 20px;
+}
