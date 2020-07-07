@@ -13,24 +13,15 @@ export default class Chart extends Component {
             .attr("width", 500)
             .attr("height", 200)
             .style("border", "1px solid black");
-        // var x = d3.scaleLinear().domain([0,100]).range([30,490]);
-        var xScale = d3.scale.ordinal()
-            .domain(["Tiger Woods","Dustin Johnson","Kevin Streelman","Rory McIlroy"])
-            .rangePoints([0, 500]);
-        var xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom");
-        var y = d3.scaleLinear().domain([0,100]).range([190,30]);
-        // svgCanvas.append("g").attr("transform", "translate(0, 180)").call(d3.axisBottom(xAxis));
-        svgCanvas.append("g").attr("class", "x axis").call(xAxis);
-        svgCanvas.append("g").attr("transform", "translate(30,-10)").call(d3.axisLeft(y));
-        // d3.csv("result.csv").then(function(data) {
-        //     alert(data[0]);
-        //     data.forEach(function(d) {
-        //         alert(d.Player);
-        //         // this.data.push(d["Player"]);
-        //     })
-        // })
+        var names = ["","Tiger Woods","Phil Mickelson","Dustin Johnson","Kevin Streelman","Rory McIlroy"]
+        var xScale = d3.scalePoint().domain(names).range([30,460]);
+        var y = d3.scaleLinear().domain([0,100]).range([160,30]);
+        svgCanvas.append("g")
+            .attr("transform", "translate(0, 160)")
+            .call(d3.axisBottom(xScale))
+            .selectAll("text")
+            .attr("transform", "rotate(-30)");
+        svgCanvas.append("g").attr("transform", "translate(30,0)").call(d3.axisLeft(y));
     }
 
     render() {
